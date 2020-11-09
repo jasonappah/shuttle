@@ -15,21 +15,9 @@ var firebaseConfig = {
   appId: "1:511076742812:web:74054c3600f0e8fd9cdf59"
 };
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <GeistProvider>
-//       <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-//     <CssBaseline />
-//     <App />
-//     </FirebaseAppProvider>
-//     </GeistProvider>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 // Enable Concurrent Mode
 // https://reactjs.org/docs/concurrent-mode-adoption.html#enabling-concurrent-mode
-createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
 <React.StrictMode>
   <GeistProvider>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
