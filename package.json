@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "@geist-ui/react": "^2.1.0-canary.2",
+    "@google-cloud/compute": "^2.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "base-64": "^1.0.0",
+    "dotenv": "^8.2.0",
     "firebase": "^7.0.0",
     "react": "^0.0.0-experimental-4ead6b530",
     "react-dom": "^0.0.0-experimental-4ead6b530",
