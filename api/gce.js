@@ -35,6 +35,7 @@ function getInstances(res) {
         status: tmp[vm]['metadata']['status'],
         internalIP: [],
         externalIP: [],
+        instance: tmp[vm],
       })
       tmp[vm]['metadata']['networkInterfaces'].forEach(i =>
         i['accessConfigs'].forEach(element => vms[vm]['externalIP'].push(element['natIP'])),
