@@ -28,6 +28,7 @@ function getInstances(res) {
     var tmp = data[0]
     var vms = []
     for (var vm in tmp) {
+      var tmp2 = tmp[vm]['metadata']['zone'].split('/')
       vms.push({
         id: tmp[vm]['metadata']['id'],
         name: tmp[vm]['metadata']['name'],
@@ -35,6 +36,7 @@ function getInstances(res) {
         status: tmp[vm]['metadata']['status'],
         internalIP: [],
         externalIP: [],
+        zone: tmp2[tmp2.length - 1],
         instance: tmp[vm],
       })
       tmp[vm]['metadata']['networkInterfaces'].forEach(i =>
@@ -43,7 +45,16 @@ function getInstances(res) {
       tmp[vm]['metadata']['networkInterfaces'].forEach(ni => vms[vm].internalIP.push(ni.networkIP))
     }
     res.send(vms)
+    return vms
   })
+}
+
+function powerOn(zone, vm) {
+  return instance.zone(zone).vm(vm).start
+}
+
+function powerOnInstance(vm) {
+  return powerOn(vm.zone, vm.name)
 }
 
 module.exports = function (req, res) {
